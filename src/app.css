@@ -1,0 +1,199 @@
+@import 'tailwindcss';
+
+/*
+ * Design tokens — Apple HIG translated for the web.
+ * Colors are named by role (HIG › Color: "avoid redefining the semantic meanings"),
+ * and each role has its own selected dark-mode value (HIG › Dark Mode).
+ * Every text/background pair below meets WCAG 4.5:1 (HIG › Accessibility).
+ */
+:root {
+	color-scheme: light dark;
+	--gc-canvas: #f5f5f7;
+	--gc-surface: #ffffff;
+	--gc-fill: #ebebef;
+	--gc-fill-strong: #e3e3e8;
+	--gc-label: #1d1d1f;
+	--gc-label-2: #636366;
+	--gc-label-3: #aeaeb2;
+	--gc-link: #424245;
+	--gc-separator: rgb(0 0 0 / 0.08);
+	--gc-border: rgb(0 0 0 / 0.12);
+	--gc-accent: #0071e3; /* fills behind white text */
+	--gc-accent-text: #0066cc; /* links and accent text */
+	--gc-danger: #d70015;
+	--gc-glass: rgb(245 245 247 / 0.72);
+
+	--gc-cat-finance: #248a3d;
+	--gc-cat-health: #d70015;
+	--gc-cat-math: #0040dd;
+	--gc-cat-everyday: #c93400;
+	--gc-cat-developer: #3634a3;
+
+	--gc-series-1: #0071e3;
+	--gc-series-2: #e8590c;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--gc-canvas: #000000;
+		--gc-surface: #1c1c1e;
+		--gc-fill: #2c2c2e;
+		--gc-fill-strong: #3a3a3c;
+		--gc-label: #f5f5f7;
+		--gc-label-2: #98989d;
+		--gc-label-3: #636366;
+		--gc-link: #d1d1d6;
+		--gc-separator: rgb(255 255 255 / 0.12);
+		--gc-border: rgb(255 255 255 / 0.16);
+		--gc-accent: #0071e3;
+		--gc-accent-text: #2997ff;
+		--gc-danger: #ff6961;
+		--gc-glass: rgb(22 22 23 / 0.72);
+
+		--gc-cat-finance: #30d158;
+		--gc-cat-health: #ff6961;
+		--gc-cat-math: #409cff;
+		--gc-cat-everyday: #ffb340;
+		--gc-cat-developer: #7d7aff;
+
+		--gc-series-1: #2997ff;
+		--gc-series-2: #e8590c;
+	}
+}
+
+@theme inline {
+	--font-sans:
+		-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Segoe UI', Roboto,
+		'Helvetica Neue', Arial, sans-serif;
+	--font-mono: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
+
+	--color-canvas: var(--gc-canvas);
+	--color-surface: var(--gc-surface);
+	--color-fill: var(--gc-fill);
+	--color-fill-strong: var(--gc-fill-strong);
+	--color-label: var(--gc-label);
+	--color-label-2: var(--gc-label-2);
+	--color-label-3: var(--gc-label-3);
+	--color-link: var(--gc-link);
+	--color-separator: var(--gc-separator);
+	--color-border: var(--gc-border);
+	--color-accent: var(--gc-accent);
+	--color-accent-text: var(--gc-accent-text);
+	--color-danger: var(--gc-danger);
+	--color-glass: var(--gc-glass);
+	--color-finance: var(--gc-cat-finance);
+	--color-health: var(--gc-cat-health);
+	--color-math: var(--gc-cat-math);
+	--color-everyday: var(--gc-cat-everyday);
+	--color-developer: var(--gc-cat-developer);
+	--color-series-1: var(--gc-series-1);
+	--color-series-2: var(--gc-series-2);
+
+	/* HIG Dynamic Type (Large default), in rem so browser text-size settings scale them. */
+	--text-caption: 0.75rem;
+	--text-caption--line-height: 1rem;
+	--text-footnote: 0.8125rem;
+	--text-footnote--line-height: 1.125rem;
+	--text-subhead: 0.9375rem;
+	--text-subhead--line-height: 1.375rem;
+	--text-callout: 1rem;
+	--text-callout--line-height: 1.375rem;
+	--text-body: 1.0625rem;
+	--text-body--line-height: 1.5rem;
+	--text-title3: 1.25rem;
+	--text-title3--line-height: 1.625rem;
+	--text-title2: 1.375rem;
+	--text-title2--line-height: 1.75rem;
+	--text-title1: 1.75rem;
+	--text-title1--line-height: 2.125rem;
+	--text-large: 2.125rem;
+	--text-large--line-height: 2.5rem;
+
+	--radius-card: 1.25rem;
+	--radius-control: 0.75rem;
+}
+
+@layer base {
+	html {
+		-webkit-text-size-adjust: 100%;
+		text-size-adjust: 100%;
+		scroll-padding-top: 4rem;
+	}
+	body {
+		@apply bg-canvas font-sans text-body text-label antialiased;
+		font-feature-settings: 'kern';
+		min-height: 100dvh;
+	}
+	a {
+		@apply text-accent-text;
+	}
+	:focus-visible {
+		outline: 2px solid var(--gc-accent);
+		outline-offset: 2px;
+		border-radius: 4px;
+	}
+	input,
+	select,
+	button {
+		font: inherit;
+	}
+	/* Numbers line up in results and tables. */
+	.tabular {
+		font-variant-numeric: tabular-nums;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+/* Glass is reserved for the floating top bar only (HIG › Liquid Glass: controls, not content). */
+.glass {
+	background: var(--gc-glass);
+	-webkit-backdrop-filter: saturate(180%) blur(20px);
+	backdrop-filter: saturate(180%) blur(20px);
+}
+@media (prefers-reduced-transparency: reduce) {
+	.glass {
+		background: var(--gc-canvas);
+		-webkit-backdrop-filter: none;
+		backdrop-filter: none;
+	}
+}
+
+/* ---------- Copy feedback (lightweight, CSS-only, ~0 JS) ----------
+ * pop:   the button gives a small spring when the copy succeeds
+ * draw:  the check mark strokes itself in
+ * toast: a "Copied" chip rises from the button and fades
+ * flash: the copied value gets a soft accent highlight
+ * All of it collapses to instant under prefers-reduced-motion (rule above). */
+@keyframes gc-pop {
+	0% { transform: scale(1); }
+	35% { transform: scale(0.94); }
+	70% { transform: scale(1.04); }
+	100% { transform: scale(1); }
+}
+@keyframes gc-draw {
+	from { stroke-dashoffset: 24; }
+	to { stroke-dashoffset: 0; }
+}
+@keyframes gc-toast {
+	0% { opacity: 0; transform: translate(var(--gc-tx, -50%), 6px) scale(0.92); }
+	14% { opacity: 1; transform: translate(var(--gc-tx, -50%), -2px) scale(1); }
+	78% { opacity: 1; transform: translate(var(--gc-tx, -50%), -4px) scale(1); }
+	100% { opacity: 0; transform: translate(var(--gc-tx, -50%), -10px) scale(0.98); }
+}
+@keyframes gc-flash {
+	0% { background-color: color-mix(in srgb, var(--gc-accent) 18%, transparent); }
+	100% { background-color: transparent; }
+}
+.gc-pop { animation: gc-pop 320ms cubic-bezier(0.34, 1.56, 0.64, 1); }
+.gc-draw { stroke-dasharray: 24; stroke-dashoffset: 24; animation: gc-draw 360ms 80ms ease-out forwards; }
+.gc-toast { animation: gc-toast 1600ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
+.gc-flash { animation: gc-flash 900ms ease-out; border-radius: 0.5rem; }

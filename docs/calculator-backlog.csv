@@ -1,0 +1,276 @@
+wave,category,name,slug,type,monthly_searches,cpc_usd,notes,reference_url
+done,everyday,Age Calculator,age-calculator,done,2500000,0.17,,https://www.calculator.net/age-calculator.html
+done,math,Basic Calculator,basic-calculator,done (custom),1900000,0.25,"Keyword ""calculator"" (1.9M/mo): also embedded on the home page",https://www.calculator.net/basic-calculator.html
+done,health,BMI Calculator,bmi-calculator,done,749200,0.34,,https://www.calculator.net/bmi-calculator.html
+done,health,Calorie Calculator,calorie-calculator,done,546900,0.65,Mifflin-St Jeor,https://www.calculator.net/calorie-calculator.html
+done,everyday,Time Calculator,time-calculator,done,495400,1.34,Duration input type,https://www.calculator.net/time-calculator.html
+done,developer,Bandwidth Calculator,bandwidth-calculator,done,,,,https://www.calculator.net/bandwidth-calculator.html
+done,developer,Base64 Encode / Decode,base64-encode-decode,done,,,Textarea input,https://www.calculator.net/base64-encode-decode.html
+done,developer,IP Subnet Calculator,ip-subnet-calculator,done,,,,https://www.calculator.net/ip-subnet-calculator.html
+done,developer,Password Generator,password-generator,done,,,crypto.getRandomValues; never in URL,https://www.calculator.net/password-generator.html
+done,developer,URL Encode / Decode,url-encode-decode,done,,,Textarea input,https://www.calculator.net/url-encode-decode.html
+done,everyday,BTU Calculator,btu-calculator,done,,,,https://www.calculator.net/btu-calculator.html
+done,everyday,Concrete Calculator,concrete-calculator,done,,,,https://www.calculator.net/concrete-calculator.html
+done,everyday,Conversion Calculator,unit-converter,done,,,Unit families; data-driven,https://www.calculator.net/conversion-calculator.html
+done,everyday,Date Calculator,date-calculator,done,,,"Add/subtract days, business days",https://www.calculator.net/date-calculator.html
+done,everyday,Day Counter,day-counter,done,,,,https://www.calculator.net/day-counter.html
+done,everyday,Day of the Week Calculator,day-of-the-week-calculator,done,,,,https://www.calculator.net/day-of-the-week-calculator.html
+done,everyday,Density Calculator,density-calculator,done,,,,https://www.calculator.net/density-calculator.html
+done,everyday,Electricity Calculator,electricity-calculator,done,,,Cost of running devices,https://www.calculator.net/electricity-calculator.html
+done,everyday,Fuel Cost Calculator,fuel-cost-calculator,done,,,,https://www.calculator.net/fuel-cost-calculator.html
+done,everyday,GPA Calculator,gpa-calculator,done,,,Course rows: repeating-row input,https://www.calculator.net/gpa-calculator.html
+done,everyday,Gas Mileage Calculator,gas-mileage-calculator,done,,,MPG and L/100km,https://www.calculator.net/gas-mileage-calculator.html
+done,everyday,Grade Calculator,grade-calculator,done,,,Final-grade needed; repeating rows,https://www.calculator.net/grade-calculator.html
+done,everyday,Gravel Calculator,gravel-calculator,done,,,,https://www.calculator.net/gravel-calculator.html
+done,everyday,Hours Calculator,hours-calculator,done,,,,https://www.calculator.net/hours-calculator.html
+done,everyday,Mileage Calculator,mileage-calculator,done,,,Reimbursement,https://www.calculator.net/mileage-calculator.html
+done,everyday,Molarity Calculator,molarity-calculator,done,,,,https://www.calculator.net/molarity-calculator.html
+done,everyday,Mulch Calculator,mulch-calculator,done,,,,https://www.calculator.net/mulch-calculator.html
+done,everyday,Ohms Law Calculator,ohms-law-calculator,done,,,,https://www.calculator.net/ohms-law-calculator.html
+done,everyday,Roman Numeral Converter,roman-numeral-converter,done,,,,https://www.calculator.net/roman-numeral-converter.html
+done,everyday,Roofing Calculator,roofing-calculator,done,,,,https://www.calculator.net/roofing-calculator.html
+done,everyday,Shoe Size Conversion,shoe-size-conversion,done,,,Size tables,https://www.calculator.net/shoe-size-conversion.html
+done,everyday,Sleep Calculator,sleep-calculator,done,,,Time-of-day input,https://www.calculator.net/sleep-calculator.html
+done,everyday,Speed Calculator,speed-calculator,done,,,,https://www.calculator.net/speed-calculator.html
+done,everyday,Square Footage Calculator,square-footage-calculator,done,,,,https://www.calculator.net/square-footage-calculator.html
+done,everyday,Stair Calculator,stair-calculator,done,,,,https://www.calculator.net/stair-calculator.html
+done,everyday,Tile Calculator,tile-calculator,done,,,,https://www.calculator.net/tile-calculator.html
+done,everyday,Time Card Calculator,time-card-calculator,done,,,Weekly rows,https://www.calculator.net/time-card-calculator.html
+done,everyday,Time Zone Calculator,time-zone-calculator,done,,,Intl time-zone data,https://www.calculator.net/time-zone-calculator.html
+done,everyday,Tip Calculator,tip-calculator,done,,,,https://www.calculator.net/tip-calculator.html
+done,finance,401K Calculator,401k-calculator,done,,,Contribution limits per year,https://www.calculator.net/401k-calculator.html
+done,finance,APR Calculator,apr-calculator,done,,,,https://www.calculator.net/apr-calculator.html
+done,finance,Amortization Calculator,amortization-calculator,done,,,Full monthly schedule,https://www.calculator.net/amortization-calculator.html
+done,finance,Annuity Calculator,annuity-calculator,done,,,,https://www.calculator.net/annuity-calculator.html
+done,finance,Annuity Payout Calculator,annuity-payout-calculator,done,,,,https://www.calculator.net/annuity-payout-calculator.html
+done,finance,Auto Lease Calculator,auto-lease-calculator,done,,,,https://www.calculator.net/auto-lease-calculator.html
+done,finance,Auto Loan Calculator,auto-loan-calculator,done,,,"Trade-in, sales tax, fees",https://www.calculator.net/auto-loan-calculator.html
+done,finance,Bond Calculator,bond-calculator,done,,,Price / yield,https://www.calculator.net/bond-calculator.html
+done,finance,Budget Calculator,budget-calculator,done,,,50/30/20,https://www.calculator.net/budget-calculator.html
+done,finance,Business Loan Calculator,business-loan-calculator,done,,,,https://www.calculator.net/business-loan-calculator.html
+done,finance,CD Calculator,cd-calculator,done,,,,https://www.calculator.net/cd-calculator.html
+done,finance,Canadian Mortgage Calculator,canadian-mortgage-calculator,done,,,"Semi-annual compounding, CAD",https://www.calculator.net/canadian-mortgage-calculator.html
+done,finance,Commission Calculator,commission-calculator,done,,,,https://www.calculator.net/commission-calculator.html
+done,finance,Compound Interest Calculator,compound-interest-calculator,done,,,,https://www.calculator.net/compound-interest-calculator.html
+done,finance,Credit Card Calculator,credit-card-calculator,done,,,,https://www.calculator.net/credit-card-calculator.html
+done,finance,Credit Cards Payoff Calculator,credit-card-payoff-calculator,done,,,Multiple cards: needs a repeating-row input,https://www.calculator.net/credit-card-payoff-calculator.html
+done,finance,Debt Consolidation Calculator,debt-consolidation-calculator,done,,,,https://www.calculator.net/debt-consolidation-calculator.html
+done,finance,Debt Payoff Calculator,debt-payoff-calculator,done,,,Avalanche vs snowball; repeating rows,https://www.calculator.net/debt-payoff-calculator.html
+done,finance,Debt-to-Income Ratio Calculator,debt-to-income-ratio-calculator,done,,,,https://www.calculator.net/debt-ratio-calculator.html
+done,finance,Depreciation Calculator,depreciation-calculator,done,,,"Straight-line, declining balance, SYD",https://www.calculator.net/depreciation-calculator.html
+done,finance,Discount Calculator,discount-calculator,done,,,,https://www.calculator.net/discount-calculator.html
+done,finance,Down Payment Calculator,down-payment-calculator,done,,,,https://www.calculator.net/down-payment-calculator.html
+done,finance,FHA Loan Calculator,fha-loan-calculator,done,,,MIP rates,https://www.calculator.net/fha-loan-calculator.html
+done,finance,Finance Calculator,finance-calculator,done,,,"TVM solver: N, I/Y, PV, PMT, FV",https://www.calculator.net/finance-calculator.html
+done,finance,Future Value Calculator,future-value-calculator,done,,,,https://www.calculator.net/future-value-calculator.html
+done,finance,HELOC Calculator,heloc-calculator,done,,,,https://www.calculator.net/heloc-calculator.html
+done,finance,Home Equity Loan Calculator,home-equity-loan-calculator,done,,,,https://www.calculator.net/home-equity-loan-calculator.html
+done,finance,House Affordability Calculator,house-affordability-calculator,done,,,DTI-based,https://www.calculator.net/house-affordability-calculator.html
+done,finance,IRA Calculator,ira-calculator,done,,,Contribution limits per year,https://www.calculator.net/ira-calculator.html
+done,finance,IRR Calculator,irr-calculator,done,,,Cash-flow rows; iterative solve,https://www.calculator.net/irr-calculator.html
+done,finance,Inflation Calculator,inflation-calculator,done,,,"Needs US CPI history table (static JSON, yearly update)",https://www.calculator.net/inflation-calculator.html
+done,finance,Interest Calculator,interest-calculator,done,,,,https://www.calculator.net/interest-calculator.html
+done,finance,Interest Rate Calculator,interest-rate-calculator,done,,,Solve rate from payment (iterative),https://www.calculator.net/interest-rate-calculator.html
+done,finance,Investment Calculator,investment-calculator,done,,,,https://www.calculator.net/investment-calculator.html
+done,finance,Loan Calculator,loan-calculator,done,,,,https://www.calculator.net/loan-calculator.html
+done,finance,Margin Calculator,margin-calculator,done,,,Profit margin / markup,https://www.calculator.net/margin-calculator.html
+done,finance,Mortgage Calculator,mortgage-calculator,done,,,,https://www.calculator.net/mortgage-calculator.html
+done,finance,Mortgage Calculator UK,uk-mortgage-calculator,done,,,"GBP, stamp duty optional",https://www.calculator.net/mortgage-calculator-uk.html
+done,finance,Mortgage Payoff Calculator,mortgage-payoff-calculator,done,,,Extra payments,https://www.calculator.net/mortgage-payoff-calculator.html
+done,finance,Payment Calculator,payment-calculator,done,,,Fixed term or fixed payment mode,https://www.calculator.net/payment-calculator.html
+done,finance,Pension Calculator,pension-calculator,done,,,Lump sum vs monthly,https://www.calculator.net/pension-calculator.html
+done,finance,Personal Loan Calculator,personal-loan-calculator,done,,,,https://www.calculator.net/personal-loan-calculator.html
+done,finance,Present Value Calculator,present-value-calculator,done,,,,https://www.calculator.net/present-value-calculator.html
+done,finance,ROI Calculator,roi-calculator,done,,,,https://www.calculator.net/roi-calculator.html
+done,finance,Refinance Calculator,refinance-calculator,done,,,Break-even month,https://www.calculator.net/refinance-calculator.html
+done,finance,Rent Calculator,rent-calculator,done,,,Rent affordability from income,https://www.calculator.net/rent-calculator.html
+done,finance,Rent vs. Buy Calculator,rent-vs-buy-calculator,done,,,,https://www.calculator.net/rent-vs-buy-calculator.html
+done,finance,Rental Property Calculator,rental-property-calculator,done,,,"Cash flow, cap rate, CoC",https://www.calculator.net/rental-property-calculator.html
+done,finance,Repayment Calculator,repayment-calculator,done,,,,https://www.calculator.net/repayment-calculator.html
+done,finance,Retirement Calculator,retirement-calculator,done,,,,https://www.calculator.net/retirement-calculator.html
+done,finance,Roth IRA Calculator,roth-ira-calculator,done,,,Contribution limits per year,https://www.calculator.net/roth-ira-calculator.html
+done,finance,Salary Calculator,salary-calculator,done,,,Hourly ↔ annual conversion,https://www.calculator.net/salary-calculator.html
+done,finance,Sales Tax Calculator,sales-tax-calculator,done,,,,https://www.calculator.net/sales-tax-calculator.html
+done,finance,Savings Calculator,savings-calculator,done,,,,https://www.calculator.net/savings-calculator.html
+done,finance,Simple Interest Calculator,simple-interest-calculator,done,,,,https://www.calculator.net/simple-interest-calculator.html
+done,finance,Student Loan Calculator,student-loan-calculator,done,,,,https://www.calculator.net/student-loan-calculator.html
+done,finance,VA Mortgage Calculator,va-mortgage-calculator,done,,,Funding-fee table,https://www.calculator.net/va-mortgage-calculator.html
+done,finance,VAT Calculator,vat-calculator,done,,,Add / remove VAT; global audience,https://www.calculator.net/vat-calculator.html
+done,health,BMR Calculator,bmr-calculator,done,,,,https://www.calculator.net/bmr-calculator.html
+done,health,Body Fat Calculator,body-fat-calculator,done,,,US Navy method,https://www.calculator.net/body-fat-calculator.html
+done,health,Calories Burned Calculator,calories-burned-calculator,done,,,MET table (static data),https://www.calculator.net/calories-burned-calculator.html
+done,health,Carbohydrate Calculator,carbohydrate-calculator,done,,,,https://www.calculator.net/carbohydrate-calculator.html
+done,health,Conception Calculator,conception-calculator,done,,,,https://www.calculator.net/conception-calculator.html
+done,health,Due Date Calculator,due-date-calculator,done,,,,https://www.calculator.net/due-date-calculator.html
+done,health,Ideal Weight Calculator,ideal-weight-calculator,done,,,"Robinson, Miller, Devine, Hamwi",https://www.calculator.net/ideal-weight-calculator.html
+done,health,Lean Body Mass Calculator,lean-body-mass-calculator,done,,,,https://www.calculator.net/lean-body-mass-calculator.html
+done,health,Macro Calculator,macro-calculator,done,,,,https://www.calculator.net/macro-calculator.html
+done,health,One Rep Max Calculator,one-rep-max-calculator,done,,,,https://www.calculator.net/one-rep-max-calculator.html
+done,health,Ovulation Calculator,ovulation-calculator,done,,,,https://www.calculator.net/ovulation-calculator.html
+done,health,Pace Calculator,pace-calculator,done,,,Needs a duration (h:m:s) input type,https://www.calculator.net/pace-calculator.html
+done,health,Period Calculator,period-calculator,done,,,,https://www.calculator.net/period-calculator.html
+done,health,Pregnancy Calculator,pregnancy-calculator,done,,,Due date + week-by-week,https://www.calculator.net/pregnancy-calculator.html
+done,health,Pregnancy Weight Gain Calculator,pregnancy-weight-gain-calculator,done,,,IOM ranges,https://www.calculator.net/pregnancy-weight-gain-calculator.html
+done,health,Protein Calculator,protein-calculator,done,,,,https://www.calculator.net/protein-calculator.html
+done,health,TDEE Calculator,tdee-calculator,done,,,,https://www.calculator.net/tdee-calculator.html
+done,health,Target Heart Rate Calculator,target-heart-rate-calculator,done,,,,https://www.calculator.net/target-heart-rate-calculator.html
+done,math,Area Calculator,area-calculator,done,,,Shape selector,https://www.calculator.net/area-calculator.html
+done,math,Average Calculator,average-calculator,done,,,Number-list input,https://www.calculator.net/average-calculator.html
+done,math,Binary Calculator,binary-calculator,done,,,,https://www.calculator.net/binary-calculator.html
+done,math,Circle Calculator,circle-calculator,done,,,,https://www.calculator.net/circle-calculator.html
+done,math,Confidence Interval Calculator,confidence-interval-calculator,done,,,,https://www.calculator.net/confidence-interval-calculator.html
+done,math,Distance Calculator,distance-calculator,done,,,2D/3D points (not map distance),https://www.calculator.net/distance-calculator.html
+done,math,Exponent Calculator,exponent-calculator,done,,,,https://www.calculator.net/exponent-calculator.html
+done,math,Factor Calculator,factor-calculator,done,,,,https://www.calculator.net/factor-calculator.html
+done,math,Fraction Calculator,fraction-calculator,done,,,Step-by-step simplification,https://www.calculator.net/fraction-calculator.html
+done,math,Greatest Common Factor Calculator,gcf-calculator,done,,,Number-list input,https://www.calculator.net/gcf-calculator.html
+done,math,Half-Life Calculator,half-life-calculator,done,,,,https://www.calculator.net/half-life-calculator.html
+done,math,Hex Calculator,hex-calculator,done,,,,https://www.calculator.net/hex-calculator.html
+done,math,Least Common Multiple Calculator,lcm-calculator,done,,,Number-list input,https://www.calculator.net/lcm-calculator.html
+done,math,Log Calculator,log-calculator,done,,,,https://www.calculator.net/log-calculator.html
+done,math,Long Division Calculator,long-division-calculator,done,,,Step layout,https://www.calculator.net/long-division-calculator.html
+done,math,"Mean, Median, Mode, Range Calculator",mean-median-mode-range-calculator,done,,,Number-list input,https://www.calculator.net/mean-median-mode-range-calculator.html
+done,math,Percent Error Calculator,percent-error-calculator,done,,,,https://www.calculator.net/percent-error-calculator.html
+done,math,Percentage Calculator,percentage-calculator,done,,,,https://www.calculator.net/percent-calculator.html
+done,math,Permutation and Combination Calculator,permutation-and-combination-calculator,done,,,,https://www.calculator.net/permutation-and-combination-calculator.html
+done,math,Prime Factorization Calculator,prime-factorization-calculator,done,,,,https://www.calculator.net/prime-factorization-calculator.html
+done,math,Probability Calculator,probability-calculator,done,,,,https://www.calculator.net/probability-calculator.html
+done,math,Pythagorean Theorem Calculator,pythagorean-theorem-calculator,done,,,,https://www.calculator.net/pythagorean-theorem-calculator.html
+done,math,Quadratic Formula Calculator,quadratic-formula-calculator,done,,,,https://www.calculator.net/quadratic-formula-calculator.html
+done,math,Random Number Generator,random-number-generator,done,,,Impure; button-driven,https://www.calculator.net/random-number-generator.html
+done,math,Ratio Calculator,ratio-calculator,done,,,,https://www.calculator.net/ratio-calculator.html
+done,math,Right Triangle Calculator,right-triangle-calculator,done,,,,https://www.calculator.net/right-triangle-calculator.html
+done,math,Root Calculator,root-calculator,done,,,,https://www.calculator.net/root-calculator.html
+done,math,Rounding Calculator,rounding-calculator,done,,,,https://www.calculator.net/rounding-calculator.html
+done,math,Sample Size Calculator,sample-size-calculator,done,,,,https://www.calculator.net/sample-size-calculator.html
+done,math,Scientific Calculator,scientific-calculator,done (custom),,,Same keypad widget as basic calculator (scientific mode),https://www.calculator.net/scientific-calculator.html
+done,math,Scientific Notation Calculator,scientific-notation-calculator,done,,,,https://www.calculator.net/scientific-notation-calculator.html
+done,math,Slope Calculator,slope-calculator,done,,,,https://www.calculator.net/slope-calculator.html
+done,math,Standard Deviation Calculator,standard-deviation-calculator,done,,,Needs a number-list input,https://www.calculator.net/standard-deviation-calculator.html
+done,math,Surface Area Calculator,surface-area-calculator,done,,,,https://www.calculator.net/surface-area-calculator.html
+done,math,Triangle Calculator,triangle-calculator,done,,,SSS/SAS/ASA solver,https://www.calculator.net/triangle-calculator.html
+done,math,Volume Calculator,volume-calculator,done,,,Shape selector,https://www.calculator.net/volume-calculator.html
+done,math,Z-score Calculator,z-score-calculator,done,,,,https://www.calculator.net/z-score-calculator.html
+done,everyday,Bra Size Calculator,bra-size-calculator,done,,,Regional sizing tables,https://www.calculator.net/bra-size-calculator.html
+done,everyday,Dew Point Calculator,dew-point-calculator,done,,,,https://www.calculator.net/dew-point-calculator.html
+done,everyday,Dice Roller,dice-roller,done (custom),,,,https://www.calculator.net/dice-roller.html
+done,everyday,Engine Horsepower Calculator,engine-horsepower-calculator,done,,,,https://www.calculator.net/engine-horsepower-calculator.html
+done,everyday,GDP Calculator,gdp-calculator,done,,,,https://www.calculator.net/gdp-calculator.html
+done,everyday,Golf Handicap Calculator,golf-handicap-calculator,done,,,WHS; repeating rows,https://www.calculator.net/golf-handicap-calculator.html
+done,everyday,Heat Index Calculator,heat-index-calculator,done,,,,https://www.calculator.net/heat-index-calculator.html
+done,everyday,Height Calculator,height-calculator,done,,,Child adult-height prediction,https://www.calculator.net/height-calculator.html
+done,everyday,Horsepower Calculator,horsepower-calculator,done,,,,https://www.calculator.net/horsepower-calculator.html
+done,everyday,Mass Calculator,mass-calculator,done,,,,https://www.calculator.net/mass-calculator.html
+done,everyday,Molecular Weight Calculator,molecular-weight-calculator,done,,,Formula parser + periodic table data,https://www.calculator.net/molecular-weight-calculator.html
+done,everyday,Resistor Calculator,resistor-calculator,done,,,Color bands via selects,https://www.calculator.net/resistor-calculator.html
+done,everyday,Tire Size Calculator,tire-size-calculator,done,,,,https://www.calculator.net/tire-size-calculator.html
+done,everyday,Voltage Drop Calculator,voltage-drop-calculator,done,,,Wire gauge table,https://www.calculator.net/voltage-drop-calculator.html
+done,everyday,Weight Calculator,weight-calculator,done,,,Weight from mass and gravity,https://www.calculator.net/weight-calculator.html
+done,everyday,Wind Chill Calculator,wind-chill-calculator,done,,,,https://www.calculator.net/wind-chill-calculator.html
+done,finance,Average Return Calculator,average-return-calculator,done,,,CAGR; repeating rows,https://www.calculator.net/average-return-calculator.html
+done,finance,Boat Loan Calculator,boat-loan-calculator,done,,,,https://www.calculator.net/boat-loan-calculator.html
+done,finance,Cash Back or Low Interest Calculator,cash-back-or-low-interest-calculator,done,,,,https://www.calculator.net/cash-back-or-low-interest-calculator.html
+done,finance,College Cost Calculator,college-cost-calculator,done,,,,https://www.calculator.net/college-cost-calculator.html
+done,finance,Currency Calculator,currency-converter,done,,,Needs live FX rates (client-side API),https://www.calculator.net/currency-calculator.html
+done,finance,Estate Tax Calculator,estate-tax-calculator,done,,,Exemption per year,https://www.calculator.net/estate-tax-calculator.html
+done,finance,Income Tax Calculator,income-tax-calculator,done,,,US federal brackets per tax year,https://www.calculator.net/tax-calculator.html
+done,finance,Lease Calculator,lease-calculator,done,,,,https://www.calculator.net/lease-calculator.html
+done,finance,Marriage Tax Calculator,marriage-tax-calculator,done,,,Brackets per year,https://www.calculator.net/marriage-calculator.html
+done,finance,Mutual Fund Calculator,mutual-fund-calculator,done,,,Fees and loads,https://www.calculator.net/mutual-fund-calculator.html
+done,finance,Payback Period Calculator,payback-period-calculator,done,,,,https://www.calculator.net/payback-period-calculator.html
+done,finance,RMD Calculator,rmd-calculator,done,,,IRS Uniform Lifetime Table,https://www.calculator.net/rmd-calculator.html
+done,finance,Real Estate Calculator,real-estate-calculator,done,,,,https://www.calculator.net/real-estate-calculator.html
+done,finance,Social Security Calculator,social-security-calculator,done,,,SSA rules; claim-age comparison,https://www.calculator.net/social-security-calculator.html
+done,finance,Take-Home-Paycheck Calculator,take-home-pay-calculator,done,,,Federal + state withholding tables,https://www.calculator.net/take-home-pay-calculator.html
+done,health,Army Body Fat Calculator,army-body-fat-calculator,done,,,Current Army standard tables,https://www.calculator.net/army-body-fat-calculator.html
+done,health,BAC Calculator,bac-calculator,done,,,Widmark; strong safety disclaimer,https://www.calculator.net/bac-calculator.html
+done,health,Body Surface Area Calculator,body-surface-area-calculator,done,,,,https://www.calculator.net/body-surface-area-calculator.html
+done,health,Body Type Calculator,body-type-calculator,done,,,,https://www.calculator.net/body-type-calculator.html
+done,health,Fat Intake Calculator,fat-intake-calculator,done,,,,https://www.calculator.net/fat-intake-calculator.html
+done,health,GFR Calculator,gfr-calculator,done,,,CKD-EPI 2021; clinical wording review,https://www.calculator.net/gfr-calculator.html
+done,math,Big Number Calculator,big-number-calculator,done (custom),,,BigInt / arbitrary precision,https://www.calculator.net/big-number-calculator.html
+done,math,Common Factor Calculator,common-factor-calculator,done,,,,https://www.calculator.net/common-factor-calculator.html
+done,math,Matrix Calculator,matrix-calculator,done (custom),,,Grid editor,https://www.calculator.net/matrix-calculator.html
+done,math,Number Sequence Calculator,number-sequence-calculator,done,,,,https://www.calculator.net/number-sequence-calculator.html
+done,math,P-value Calculator,p-value-calculator,done,,,,https://www.calculator.net/p-value-calculator.html
+done,math,Statistics Calculator,statistics-calculator,done,,,Number-list input,https://www.calculator.net/statistics-calculator.html
+-,everyday,Love Calculator,love-calculator,skip,,,"Novelty, no real math; thin content risk for AdSense/SEO",https://www.calculator.net/love-calculator.html
+-,everyday,Time Duration Calculator,time-duration-calculator,merge,,,Covered by time + hours calculators,https://www.calculator.net/time-duration-calculator.html
+-,finance,Mortgage Amortization Calculator,mortgage-amortization-calculator,merge,,,Covered by mortgage + amortization; add as keywords,https://www.calculator.net/mortgage-amortization-calculator.html
+-,finance,Percent Off Calculator,percent-off-calculator,merge,,,Covered by discount calculator; add as keywords,https://www.calculator.net/percent-off-calculator.html
+-,health,Anorexic BMI Calculator,anorexic-bmi-calculator,skip,,,Health-safety risk (eating disorders); BMI calculator covers the math,https://www.calculator.net/anorexic-bmi-calculator.html
+-,health,Healthy Weight Calculator,healthy-weight-calculator,merge,,,Covered by BMI + ideal weight,https://www.calculator.net/healthy-weight-calculator.html
+-,health,Overweight Calculator,overweight-calculator,merge,,,Covered by BMI,https://www.calculator.net/overweight-calculator.html
+-,health,Pregnancy Conception Calculator,pregnancy-conception-calculator,merge,,,Merge into conception calculator,https://www.calculator.net/pregnancy-conception-calculator.html
+-,health,Weight Watcher Points Calculator,weight-watchers-points-calculator,skip,,,"Trademarked, proprietary formula",https://www.calculator.net/weight-watchers-points-calculator.html
+done,everyday,Hijri Date Converter,hijri-date-converter,done,,,Waves 4-7,
+done,finance,Advance Tax Calculator (India),advance-tax-calculator,done,,,Waves 4-7 · IN,
+done,finance,Australia Pay Calculator,australia-pay-calculator,done,,,Waves 4-7 · AU,
+done,finance,Australia Stamp Duty Calculator,australia-stamp-duty-calculator,done,,,Waves 4-7 · AU,
+done,finance,Bahrain Leaving Indemnity Calculator,bahrain-leaving-indemnity-calculator,done,,,Waves 4-7 · BH,
+done,finance,Bangladesh Income Tax Calculator,bangladesh-income-tax-calculator,done,,,Waves 4-7 · BD,
+done,finance,Borrowing Power Calculator (Australia),borrowing-power-calculator,done,,,Waves 4-7 · AU,
+done,finance,Canada Income Tax Calculator,canada-income-tax-calculator,done,,,Waves 4-7 · CA,
+done,finance,Canada Mortgage Stress Test Calculator,canada-mortgage-stress-test-calculator,done,,,Waves 4-7 · CA,
+done,finance,Canada Sales Tax Calculator,canada-sales-tax-calculator,done,,,Waves 4-7 · CA,
+done,finance,Canada Take-Home Pay Calculator,canada-take-home-pay-calculator,done,,,Waves 4-7 · CA,
+done,finance,Capital Gains Tax Calculator (India),capital-gains-tax-calculator-india,done,,,Waves 4-7 · IN,
+done,finance,CPF Contribution Calculator (Singapore),cpf-contribution-calculator,done,,,Waves 4-7 · SG,
+done,finance,CPP Calculator,cpp-calculator,done,,,Waves 4-7 · CA,
+done,finance,EMI Calculator,emi-calculator,done,,,Waves 4-7,
+done,finance,EPF Calculator,epf-calculator,done,,,Waves 4-7 · IN,
+done,finance,FD Calculator,fd-calculator,done,,,Waves 4-7,
+done,finance,GCC VAT Calculator,gcc-vat-calculator,done,,,Waves 4-7 · GCC,
+done,finance,GOSI Calculator,gosi-calculator,done,,,Waves 4-7 · SA,
+done,finance,Gratuity Calculator (India),gratuity-calculator,done,,,Waves 4-7 · IN,
+done,finance,GST Calculator,gst-calculator,done,,,Waves 4-7 · IN,
+done,finance,HECS-HELP Repayment Calculator,hecs-help-calculator,done,,,Waves 4-7 · AU,
+done,finance,HRA Calculator,hra-calculator,done,,,Waves 4-7 · IN,
+done,finance,In-Hand Salary Calculator (India),in-hand-salary-calculator,done,,,Waves 4-7 · IN,
+done,finance,India Income Tax Calculator,india-income-tax-calculator,done,,,Waves 4-7 · IN,
+done,finance,IR35 Calculator,ir35-calculator,done,,,Waves 4-7 · UK,
+done,finance,Islamic Home Finance Calculator,islamic-home-finance-calculator,done,,,Waves 4-7,
+done,finance,Islamic Inheritance Calculator,islamic-inheritance-calculator,done,,,Waves 4-7,
+done,finance,Kenya PAYE Calculator,kenya-paye-calculator,done,,,Waves 4-7 · KE,
+done,finance,KiwiSaver Calculator,kiwisaver-calculator,done,,,Waves 4-7 · NZ,
+done,finance,Kuwait Indemnity Calculator,kuwait-indemnity-calculator,done,,,Waves 4-7 · KW,
+done,finance,KVP Calculator (Kisan Vikas Patra),kvp-calculator,done,,,Waves 4-7 · IN,
+done,finance,Land Transfer Tax Calculator,land-transfer-tax-calculator,done,,,Waves 4-7 · CA,
+done,finance,Lumpsum Calculator,lumpsum-calculator,done,,,Waves 4-7,
+done,finance,Malaysia EPF Calculator,malaysia-epf-calculator,done,,,Waves 4-7 · MY,
+done,finance,Malaysia Income Tax Calculator,malaysia-income-tax-calculator,done,,,Waves 4-7 · MY,
+done,finance,Nigeria PAYE Calculator,nigeria-paye-calculator,done,,,Waves 4-7 · NG,
+done,finance,NPS Calculator (National Pension System),nps-calculator,done,,,Waves 4-7 · IN,
+done,finance,NSC Calculator (National Savings Certificate),nsc-calculator,done,,,Waves 4-7 · IN,
+done,finance,NZ PAYE Calculator,nz-paye-calculator,done,,,Waves 4-7 · NZ,
+done,finance,Oman End of Service Calculator,oman-end-of-service-calculator,done,,,Waves 4-7 · OM,
+done,finance,Pakistan Property Tax Calculator,pakistan-property-tax-calculator,done,,,Waves 4-7 · PK,
+done,finance,Pakistan Salary Tax Calculator,pakistan-salary-tax-calculator,done,,,Waves 4-7 · PK,
+done,finance,Philippines Salary Calculator,philippines-salary-calculator,done,,,Waves 4-7 · PH,
+done,finance,Post Office MIS Calculator (Monthly Income Scheme),post-office-mis-calculator,done,,,Waves 4-7 · IN,
+done,finance,PPF Calculator,ppf-calculator,done,,,Waves 4-7 · IN,
+done,finance,Qatar End of Service Calculator,qatar-end-of-service-calculator,done,,,Waves 4-7 · QA,
+done,finance,RD Calculator,rd-calculator,done,,,Waves 4-7,
+done,finance,Redundancy Pay Calculator,redundancy-pay-calculator,done,,,Waves 4-7 · UK,
+done,finance,RRSP Calculator,rrsp-calculator,done,,,Waves 4-7 · CA,
+done,finance,Saudi End of Service Calculator,saudi-end-of-service-calculator,done,,,Waves 4-7 · SA,
+done,finance,SCSS Calculator (Senior Citizen Savings Scheme),scss-calculator,done,,,Waves 4-7 · IN,
+done,finance,Singapore Income Tax Calculator,singapore-income-tax-calculator,done,,,Waves 4-7 · SG,
+done,finance,SIP Calculator,sip-calculator,done,,,Waves 4-7,
+done,finance,South Africa Income Tax Calculator,south-africa-income-tax-calculator,done,,,Waves 4-7 · ZA,
+done,finance,South Africa Take-Home Pay Calculator,south-africa-take-home-pay-calculator,done,,,Waves 4-7 · ZA,
+done,finance,Stamp Duty Calculator,stamp-duty-calculator,done,,,Waves 4-7 · UK,
+done,finance,Statutory Maternity Pay Calculator,statutory-maternity-pay-calculator,done,,,Waves 4-7 · UK,
+done,finance,Statutory Sick Pay Calculator,statutory-sick-pay-calculator,done,,,Waves 4-7 · UK,
+done,finance,Step-Up SIP Calculator,step-up-sip-calculator,done,,,Waves 4-7,
+done,finance,Sukanya Samriddhi Yojana Calculator,sukanya-samriddhi-calculator,done,,,Waves 4-7 · IN,
+done,finance,Superannuation Calculator,superannuation-calculator,done,,,Waves 4-7 · AU,
+done,finance,SWP Calculator,swp-calculator,done,,,Waves 4-7,
+done,finance,TFSA Calculator,tfsa-calculator,done,,,Waves 4-7 · CA,
+done,finance,13th Month Pay Calculator (Philippines),thirteenth-month-pay-calculator,done,,,Waves 4-7 · PH,
+done,finance,South Africa Transfer Duty Calculator,transfer-duty-calculator,done,,,Waves 4-7 · ZA,
+done,finance,UAE Corporate Tax Calculator,uae-corporate-tax-calculator,done,,,Waves 4-7 · AE,
+done,finance,UAE Gratuity Calculator,uae-gratuity-calculator,done,,,Waves 4-7 · AE,
+done,finance,UK Student Loan Calculator,uk-student-loan-calculator,done,,,Waves 4-7 · UK,
+done,finance,UK Take-Home Pay Calculator,uk-take-home-pay-calculator,done,,,Waves 4-7 · UK,
+done,finance,Zakat Calculator,zakat-calculator,done,,,Waves 4-7,

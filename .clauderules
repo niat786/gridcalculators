@@ -1,0 +1,56 @@
+# Claude Project Rules: GridCalculators.com
+
+## 1. System Vision & Architecture
+* **Core Goal:** Build an authoritative, high-performance multi-calculator hub featuring hundreds of tools with a premium, Apple-inspired minimalist UI/UX.
+* **Tech Stack:** SvelteKit (Static Site Generation / Prerendered), Tailwind CSS, TypeScript, and Lucide Icons.
+* **Development Philosophy:** Configuration-Driven. Never hand-code individual UI pages for calculators. All calculators must implement a strict separation of concerns between configuration definitions, pure mathematical engines, and reusable UI rendering blocks.
+
+## 2. Architecture & Code Generation Patterns
+### A. The Pure Configuration Model
+Every calculator is two TypeScript files in `src/lib/calculators/<category>/`, named after its URL slug:
+* `<slug>.meta.ts` — `defineMeta({...})`: slug, name, category, shortDescription, metaTitle (≤60), metaDescription (120–160), icon, keywords, popularRank?, updated.
+* `<slug>.calc.ts` — `defineCalculator({ meta, inputs, calculate, content })`.
+
+The full, authoritative schema is `src/lib/calculators/types.ts`. Summary:
+* Categories: `'finance' | 'health' | 'math' | 'everyday' | 'developer'`.
+* Input types: `number` (prefix/suffix/min/max/step/decimal), `slider`, `select` (`display: 'segmented' | 'menu'`), `toggle`, `date` (`'today'` allowed). Optional `help`, `visibleWhen(values)`, `width: 'half'`.
+* `calculate(values)` is pure and returns preformatted strings: `{ primaryResult, primaryLabel, summary?, secondaryMetrics?, gauge?, chart?, table? }`. Return `'—'` for invalid input.
+* `content`: `intro`, `howTo[]`, `formulas[]`, `example { title, steps[], result }`, `faq[]`, `sources[]?`, `disclaimer?`.
+
+### B. Execution Rules
+* **No Database Overhead:** All operations must execute purely client-side within the browser ecosystem.
+* **Component Splitting:** Keep utility rendering layouts entirely separate from the pure arithmetic compute loops.
+* **State Retention:** Wire state changes to dynamically reflect in the browser address bar query strings (e.g., `?principal=10000&rate=8`) for instant shareability.
+
+## 3. Apple-Inspired UI/UX Design Language
+All UI must reflect Apple’s premium, clean, high-contrast, human-centric design language. Design tokens live in `src/app.css`.
+* **Framework Grounding:** All component styling, layouts, and color states must be evaluated against the installed `apple-design-skill` repository guidelines.
+* **Execution:** Follow the routing instructions in `.design-rules/SKILL.md` (project copy of the global apple-design skill) and load relevant `.design-rules/references/hig/*.md` files before generating or refactoring Svelte/Tailwind components.
+* **Tailwind Translation:** Automatically map official Apple HIG parameters (like System Grays, materials, dynamic type scales, and rounded surfaces) to clean, responsive Tailwind classes.
+
+## 4. Aggressive Search Engine Optimization (SEO) Rules
+* **Crawlability First:** Every calculator page must fully render clean semantic HTML elements via SvelteKit prerendering (`export const prerender = true`) so search engine indexers don't have to wait for JavaScript evaluation.
+* **Semantic Layout Injections:** Every calculator config must include an extensive textual documentation template output underneath the active widget containing:
+  1. The exact mathematical formulas used to derive the solutions.
+  2. A step-by-step breakdown manual showing an explicit calculation example.
+  3. A dedicated micro-FAQ section inside a structured `HowTo` or `FAQPage` JSON-LD schema injection block.
+* **Rich Snippets:** Programmatically inject highly specific structured JSON-LD schemas into the Svelte `<svelte:head>` element for every tool configuration processed.
+
+## 5. Claude Persona & Communication Styles
+* **Tone:** Speak as an expert Principal Frontend Engineer and technical SEO architect. 
+* **Response Delivery:** Be direct, candid, and avoid fluffy introductory pleasantries or repetitive conversational transitions. 
+* **Code Output Guidelines:** When asked for a new tool implementation, output the fully realized, copy-pasteable TypeScript configuration file without shortening or using lazy pseudo-code comments.
+
+### 6. Structure of a Single Calculator Page (Monetization, SEO & UX Optimization)
+
+Single calculator layouts utilize a vertically stacked structure optimized for viewability, crawlability, and user experience: 
+
+* **AdSense Optimization:** Use `<AdSlot placement size>` only. Placements: a banner directly after the calculator widget (never above it, so the tool stays above the fold on phones), a sticky 300×600 sidebar on desktop, and an in-content rectangle on mobile. Slots keep a fixed height and load after idle.
+* **Technical SEO:** Pre-rendered layouts via SvelteKit (prerender = true) combined with dynamic JSON-LD structured schemas (FAQPage, etc.) injected into <svelte:head>.
+* **UX & Performance:** Frictionless mobile numeric keyboards (inputmode="numeric") and zero Cumulative Layout Shift (CLS) through fixed minimum height result containers.
+
+### 7. Performance Budget (non-negotiable)
+* Zero CLS: reserve space for anything that loads late (ads, results, charts).
+* No web fonts, no third-party scripts except AdSense (idle-loaded), no client-side chart libraries.
+* Static content routes set `export const csr = false`.
+* Catalog/meta imports stay in server files (`+page.server.ts`, endpoints) so they never ship to the browser.
