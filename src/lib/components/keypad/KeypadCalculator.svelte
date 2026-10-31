@@ -25,6 +25,7 @@
 	let error = $state('');
 	let flash = $state(0);
 	let history = $state<{ expr: string; result: string; value: number }[]>([]);
+	let second = $state(false); // "2nd" shows the inverse / alternate function on keys that have one
 
 	const OPS = ['+', '−', '×', '÷', '^'];
 	const preview = $derived.by(() => {
@@ -43,7 +44,7 @@
 
 	function insert(s: string) {
 		error = '';
-		const startsFresh = fresh && /^[\d.(πe√∛]|^(sin|cos|tan|ln|log|abs)/.test(s);
+		const startsFresh = fresh && /^[\d.(πℯ√∛]|^(sin|cos|tan|ln|log|abs)/.test(s);
 		if (startsFresh) expr = '';
 		fresh = false;
 		const last = expr.slice(-1);
@@ -63,7 +64,7 @@
 	function backspace() {
 		error = '';
 		fresh = false;
-		const fn = /(sin⁻¹\(|cos⁻¹\(|tan⁻¹\(|sin\(|cos\(|tan\(|ln\(|log\(|abs\(|√\(|∛\(|Ans)$/.exec(expr);
+		const fn = /(sinh⁻¹\(|cosh⁻¹\(|tanh⁻¹\(|sin⁻¹\(|cos⁻¹\(|tan⁻¹\(|sinh\(|cosh\(|tanh\(|sin\(|cos\(|tan\(|ln\(|log\(|abs\(|√\(|∛\(|ℯ\^\(|10\^\(|×10\^|\^\(1÷|mod|Ans)$/.exec(expr);
 		expr = fn ? expr.slice(0, -fn[0].length) : expr.slice(0, -1);
 	}
 
@@ -102,7 +103,15 @@
 	}
 
 
-	type Key = { k: string; label?: string; aria?: string; kind: 'num' | 'op' | 'fn' | 'eq' | 'util'; act?: () => void };
+	type Key = {
+		k: string;
+		label?: string;
+		aria?: string;
+		kind: 'num' | 'op' | 'fn' | 'eq' | 'util';
+		act?: () => void;
+		/** What the key does when "2nd" is on. */
+		alt?: { k: string; label: string; aria: string };
+	};
 	const basicKeys: Key[] = [
 		{ k: 'AC', kind: 'util', act: clear, aria: 'All clear' },
 		{ k: '⌫', kind: 'util', act: backspace, aria: 'Delete' },
@@ -119,29 +128,53 @@
 		{ k: '.', kind: 'num', aria: 'Decimal point' },
 		{ k: '=', kind: 'eq', act: equals, aria: 'Equals' }
 	];
+	/** A random number in [0, 1) from the browser's cryptographic generator, 6 decimal places. */
+	function rand() {
+		const b = new Uint32Array(1);
+		crypto.getRandomValues(b);
+		insert((b[0] / 2 ** 32).toFixed(6));
+	}
+	// 5 columns × 5 rows. Keys with `alt` switch with "2nd", like a phone or desk scientific calculator.
 	const sciKeys: Key[] = [
-		{ k: '(', kind: 'fn' }, { k: ')', kind: 'fn' },
-		{ k: '^2', label: 'x²', kind: 'fn', aria: 'Square' },
-		{ k: '^', label: 'xʸ', kind: 'fn', aria: 'Power' },
-		{ k: '√(', label: '√', kind: 'fn', aria: 'Square root' },
-		{ k: 'sin(', label: 'sin', kind: 'fn' }, { k: 'cos(', label: 'cos', kind: 'fn' }, { k: 'tan(', label: 'tan', kind: 'fn' },
-		{ k: 'π', kind: 'fn', aria: 'Pi' }, { k: 'e', kind: 'fn', aria: 'Euler’s number' },
-		{ k: 'sin⁻¹(', label: 'sin⁻¹', kind: 'fn', aria: 'Inverse sine' },
-		{ k: 'cos⁻¹(', label: 'cos⁻¹', kind: 'fn', aria: 'Inverse cosine' },
-		{ k: 'tan⁻¹(', label: 'tan⁻¹', kind: 'fn', aria: 'Inverse tangent' },
-		{ k: 'ln(', label: 'ln', kind: 'fn', aria: 'Natural log' },
-		{ k: 'log(', label: 'log', kind: 'fn', aria: 'Log base 10' },
-		{ k: '!', label: 'x!', kind: 'fn', aria: 'Factorial' },
+		{ k: '2nd', kind: 'util', aria: 'Second functions', act: () => (second = !second) },
+		{ k: '(', kind: 'fn', aria: 'Open bracket' },
+		{ k: ')', kind: 'fn', aria: 'Close bracket' },
+		{ k: 'mod', kind: 'fn', aria: 'Modulo (remainder)' },
+		{ k: 'Ans', kind: 'fn', aria: 'Last answer' },
+
+		{ k: '^2', label: 'x²', kind: 'fn', aria: 'Square', alt: { k: '^3', label: 'x³', aria: 'Cube' } },
+		{ k: '^', label: 'xʸ', kind: 'fn', aria: 'Power', alt: { k: '^(1÷', label: 'ʸ√x', aria: 'Y-th root' } },
+		{ k: '√(', label: '√x', kind: 'fn', aria: 'Square root', alt: { k: '∛(', label: '∛x', aria: 'Cube root' } },
 		{ k: '^(−1)', label: '1/x', kind: 'fn', aria: 'Reciprocal' },
+		{ k: '!', label: 'x!', kind: 'fn', aria: 'Factorial' },
+
+		{ k: 'sin(', label: 'sin', kind: 'fn', aria: 'Sine', alt: { k: 'sin⁻¹(', label: 'sin⁻¹', aria: 'Inverse sine' } },
+		{ k: 'cos(', label: 'cos', kind: 'fn', aria: 'Cosine', alt: { k: 'cos⁻¹(', label: 'cos⁻¹', aria: 'Inverse cosine' } },
+		{ k: 'tan(', label: 'tan', kind: 'fn', aria: 'Tangent', alt: { k: 'tan⁻¹(', label: 'tan⁻¹', aria: 'Inverse tangent' } },
+		{ k: 'π', kind: 'fn', aria: 'Pi' },
+		{ k: 'e', kind: 'fn', aria: 'Euler’s number' },
+
+		{ k: 'sinh(', label: 'sinh', kind: 'fn', aria: 'Hyperbolic sine', alt: { k: 'sinh⁻¹(', label: 'sinh⁻¹', aria: 'Inverse hyperbolic sine' } },
+		{ k: 'cosh(', label: 'cosh', kind: 'fn', aria: 'Hyperbolic cosine', alt: { k: 'cosh⁻¹(', label: 'cosh⁻¹', aria: 'Inverse hyperbolic cosine' } },
+		{ k: 'tanh(', label: 'tanh', kind: 'fn', aria: 'Hyperbolic tangent', alt: { k: 'tanh⁻¹(', label: 'tanh⁻¹', aria: 'Inverse hyperbolic tangent' } },
+		{ k: 'ln(', label: 'ln', kind: 'fn', aria: 'Natural log', alt: { k: 'ℯ^(', label: 'eˣ', aria: 'e to the power' } },
+		{ k: 'log(', label: 'log', kind: 'fn', aria: 'Log base 10', alt: { k: '10^(', label: '10ˣ', aria: '10 to the power' } },
+
 		{ k: 'abs(', label: '|x|', kind: 'fn', aria: 'Absolute value' },
-		{ k: '∛(', label: '∛', kind: 'fn', aria: 'Cube root' },
-		{ k: 'Ans', kind: 'fn', aria: 'Last answer' }
+		{ k: 'C', label: 'nCr', kind: 'fn', aria: 'Combinations' },
+		{ k: 'P', label: 'nPr', kind: 'fn', aria: 'Permutations' },
+		{ k: '×10^', label: 'EE', kind: 'fn', aria: 'Times ten to the power' },
+		{ k: 'rand', label: 'Rand', kind: 'fn', aria: 'Random number', act: rand }
 	];
+	const shown = (key: Key) => (second && key.alt ? key.alt : key);
 
 	function press(key: Key) {
-		if (key.act) key.act();
+		if (key.act) return key.act();
+		const useAlt = second && !!key.alt;
+		const k = useAlt ? key.alt!.k : key.k;
 		// Euler's number goes in as "ℯ" so "2", "e", "3" reads as 2·e·3, never as 2e3 (= 2,000).
-		else insert(key.k === 'e' ? 'ℯ' : key.k);
+		insert(k === 'e' ? 'ℯ' : k);
+		if (useAlt) second = false; // one-shot, like SHIFT on a desk calculator
 	}
 
 	const keyClass: Record<Key['kind'], string> = {
@@ -176,7 +209,7 @@
 	});
 </script>
 
-<section aria-label={label} class="rounded-[1.75rem] bg-surface p-3 shadow-[0_1px_2px_rgb(0_0_0/0.04),0_12px_32px_rgb(0_0_0/0.06)] sm:p-4">
+<section aria-label={label} class="@container rounded-[1.75rem] bg-surface p-3 shadow-[0_1px_2px_rgb(0_0_0/0.04),0_12px_32px_rgb(0_0_0/0.06)] sm:p-4">
 	<div class="flex items-center justify-between gap-2 px-1 pb-3">
 		{#if allowModeSwitch}
 			<div class="flex rounded-[10px] bg-fill p-[3px] text-footnote font-medium" role="group" aria-label="Calculator mode">
@@ -218,21 +251,28 @@
 		</div>
 	</div>
 
-	<div class="flex flex-col gap-2 {mode === 'scientific' ? 'lg:flex-row' : ''}">
+	<!-- Side by side only when the calculator itself is wide enough (container query, not screen width). -->
+	<div class="flex flex-col gap-2.5 {mode === 'scientific' ? '@2xl:flex-row @2xl:gap-3' : ''}">
 		{#if mode === 'scientific'}
-			<div class="grid grid-cols-5 gap-1.5 lg:w-[44%] lg:content-start">
+			<div class="grid grid-cols-5 gap-1.5 @2xl:w-[46%] @2xl:content-start @2xl:gap-2">
 				{#each sciKeys as key (key.k)}
+					{@const s = shown(key)}
 					<button
 						type="button"
 						onclick={() => press(key)}
-						aria-label={key.aria ?? key.label ?? key.k}
-						class="h-11 rounded-xl font-medium transition-colors active:scale-[0.97] {keyClass[key.kind]}"
-						>{key.label ?? key.k}</button
+						aria-label={s.aria ?? key.label ?? key.k}
+						aria-pressed={key.k === '2nd' ? second : undefined}
+						class="flex h-11 min-w-0 items-center justify-center rounded-xl px-0.5 text-[0.9375rem] leading-none font-medium whitespace-nowrap transition-colors active:scale-[0.97] @2xl:h-12 {key.k === '2nd' && second
+							? 'bg-accent text-white'
+							: key.alt && second
+								? 'bg-accent/12 text-accent-text'
+								: keyClass[key.kind]}"
+						>{s.label ?? key.k}</button
 					>
 				{/each}
 			</div>
 		{/if}
-		<div class="grid flex-1 grid-cols-4 gap-2">
+		<div class="grid flex-1 grid-cols-4 gap-2 @2xl:content-start">
 			{#each basicKeys as key (key.k)}
 				<button
 					type="button"

@@ -2,7 +2,22 @@ import { ADSENSE_CLIENT } from './config';
 
 declare global {
 	interface Window {
-		adsbygoogle?: unknown[];
+		adsbygoogle?: unknown[] & { requestNonPersonalizedAds?: number };
+	}
+	interface Navigator {
+		/** Global Privacy Control (https://globalprivacycontrol.org). */
+		globalPrivacyControl?: boolean;
+	}
+}
+
+/**
+ * Respect Global Privacy Control: if the browser sends the signal, ask Google for non-personalised ads only.
+ * (Google's documented AdSense setting; it must be set before any ad request.) Promised in /privacy.
+ */
+function applyPrivacySignals() {
+	if (navigator.globalPrivacyControl === true) {
+		const q = (window.adsbygoogle = window.adsbygoogle || []);
+		q.requestNonPersonalizedAds = 1;
 	}
 }
 
@@ -17,6 +32,7 @@ export function loadAdSense(): Promise<void> {
 	if (scriptPromise) return scriptPromise;
 	scriptPromise = new Promise((resolve, reject) => {
 		const inject = () => {
+			applyPrivacySignals();
 			const s = document.createElement('script');
 			s.async = true;
 			s.crossOrigin = 'anonymous';

@@ -20,7 +20,8 @@ export default defineCalculator({
 				heading: 'What the scientific keys do',
 				paragraphs: [
 					'The scientific keys sit beside the number pad on wide screens, and above it on phones. Each key adds a symbol to your sum, so you can read the whole calculation before you press equals.',
-					'Some keys add a whole function, such as sin( or ln(. Others add a short symbol. For example, xʸ adds a power sign, x² adds ^2, and 1/x adds a power of −1. The keys x² and 1/x are shortcuts for a power, so they follow the same rules as any other power. The keys π and e add two constants, about 3.14159 and 2.71828.',
+					'Some keys add a whole function, such as sin( or ln(. Others add a short symbol. For example, xʸ adds a power sign, x² adds ^2, and 1/x adds a power of −1. The keys π and e add two constants, about 3.14159 and 2.71828.',
+					'The **2nd** key switches some keys to a second function for one press, like SHIFT on a desk calculator. For example, sin becomes sin⁻¹, ln becomes eˣ, log becomes 10ˣ, x² becomes x³ and √x becomes ∛x.',
 					'The ⌫ key removes a whole function name if you press it after one. So one press after sin( removes all of sin( at once.'
 				]
 			},
@@ -54,14 +55,22 @@ export default defineCalculator({
 			{
 				heading: 'Inverse trig, logs, powers and factorials',
 				paragraphs: [
-					'The inverse keys sin⁻¹, cos⁻¹ and tan⁻¹ work backwards. If sin(30°) is 0.5, then sin⁻¹(0.5) is 30°. Use them when you know the ratio and need the angle.',
+					'The inverse keys sin⁻¹, cos⁻¹ and tan⁻¹ (press 2nd first) work backwards. If sin(30°) is 0.5, then sin⁻¹(0.5) is 30°. Use them when you know the ratio and need the angle.',
 					'A logarithm asks what power gives a number. The key log uses base 10, so log(1000) = 3, because 10 × 10 × 10 = 1,000. The key ln uses base e, about 2.71828, so ln(e) = 1. Logs are used for scales such as pH and decibels.',
-					'For a power, type the base, tap xʸ, then the exponent. For example, 2 xʸ 10 gives 1,024. For the cube root of 27, tap ∛ and type 27, which gives 3.',
+					'For a power, type the base, tap xʸ, then the exponent. For example, 2 xʸ 10 gives 1,024. For the cube root of 27, tap 2nd, then ∛x, and type 27, which gives 3.',
 					'A factorial, written n!, multiplies a whole number by every whole number below it. So 5! is 5 × 4 × 3 × 2 × 1 = 120, and 0! is 1 by definition. Factorials count arrangements, so four books can be lined up in 4! = 24 different orders. The calculator can only handle up to 170!. Larger answers show ∞.'
 				],
 				list: [
 					'For more powers and roots, try the [exponent calculator](/exponent-calculator) and the [root calculator](/root-calculator).',
 					'For log bases other than 10 or e, use the [log calculator](/log-calculator).'
+				]
+			},
+			{
+				heading: 'More functions: nCr, nPr, mod, EE and hyperbolic keys',
+				paragraphs: [
+					'The **nCr** key counts combinations, and **nPr** counts arrangements. For example, 5 nCr 2 gives 10, because there are 10 ways to pick 2 items from 5. For more on this, see the [permutation and combination calculator](/permutation-and-combination-calculator).',
+					'The **mod** key gives the remainder after division, so 17 mod 5 is 2. Next, **EE** enters a power of ten: 2 EE 3 means 2 × 10³, which is 2,000. That makes very large or small numbers easy to type.',
+					'Finally, sinh, cosh and tanh are the hyperbolic functions used in engineering and physics. Press 2nd for their inverses. **Rand** adds a random number between 0 and 1.'
 				]
 			},
 			{

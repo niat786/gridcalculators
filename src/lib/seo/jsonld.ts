@@ -22,7 +22,9 @@ export function organization() {
 		'@id': ORG_ID,
 		name: SITE.name,
 		url: SITE.origin + '/',
-		logo: absoluteUrl('/icon-512.png')
+		logo: absoluteUrl('/icon-512.png'),
+		email: SITE.contactEmail,
+		contactPoint: { '@type': 'ContactPoint', contactType: 'customer support', email: SITE.contactEmail, availableLanguage: 'en' }
 	};
 }
 

@@ -4,9 +4,10 @@
  *
  * Grammar (highest precedence last):
  *   expr    = term (('+' | '-') term)*
- *   term    = unary (('*' | '/') unary | implicit-multiply unary)*
+ *   term    = unary (('*' | '/' | 'mod') unary | implicit-multiply unary)*
  *   unary   = ('+' | '-') unary | power
- *   power   = postfix ('^' unary)?            right-associative; -2^2 = -4
+ *   power   = combo ('^' unary)?              right-associative; -2^2 = -4
+ *   combo   = postfix (('C' | 'P') postfix)?  nCr and nPr, e.g. 5C2 = 10
  *   postfix = primary ('!' | '%')*
  *   primary = number | 'π' | 'e' | 'Ans' | func '(' expr ')' | '(' expr ')'
  * Display symbols × ÷ − √ are accepted. A missing closing ")" at the end is auto-closed.
@@ -15,13 +16,19 @@ export type AngleMode = 'deg' | 'rad';
 
 type Tok =
 	| { t: 'num'; v: number }
-	| { t: 'op'; v: '+' | '-' | '*' | '/' | '^' | '!' | '%' }
+	| { t: 'op'; v: '+' | '-' | '*' | '/' | '^' | '!' | '%' | 'mod' | 'C' | 'P' }
 	| { t: 'lp' }
 	| { t: 'rp' }
 	| { t: 'const'; v: 'pi' | 'e' | 'ans' }
 	| { t: 'fn'; v: FnName };
 
-const FNS = ['sin', 'cos', 'tan', 'asin', 'acos', 'atan', 'ln', 'log', 'sqrt', 'cbrt', 'abs'] as const;
+const FNS = [
+	'sin', 'cos', 'tan', 'asin', 'acos', 'atan',
+	'sinh', 'cosh', 'tanh', 'asinh', 'acosh', 'atanh',
+	'ln', 'log', 'sqrt', 'cbrt', 'abs'
+] as const;
+/** Every word the tokenizer knows, longest first so "cosh" wins over "cos" and "ans" over "a…". */
+const WORDS = [...FNS, 'pi', 'ans', 'mod', 'e', 'c', 'p'].sort((a, b) => b.length - a.length);
 type FnName = (typeof FNS)[number];
 
 export class ExprError extends Error {}
@@ -33,6 +40,9 @@ function tokenize(src: string): Tok[] {
 		.replace(/[−–]/g, '-')
 		.replace(/√/g, 'sqrt')
 		.replace(/∛/g, 'cbrt')
+		.replace(/sinh⁻¹/g, 'asinh')
+		.replace(/cosh⁻¹/g, 'acosh')
+		.replace(/tanh⁻¹/g, 'atanh')
 		.replace(/sin⁻¹/g, 'asin')
 		.replace(/cos⁻¹/g, 'acos')
 		.replace(/tan⁻¹/g, 'atan')
@@ -62,19 +72,35 @@ function tokenize(src: string): Tok[] {
 			out.push({ t: 'const', v: 'e' });
 			i++;
 		} else {
-			const word = /^[a-zA-Z]+/.exec(s.slice(i))?.[0];
-			if (!word) throw new ExprError(`Unexpected “${c}”`);
-			const lower = word.toLowerCase();
-			const fn = FNS.find((f) => lower.startsWith(f) && lower.length === f.length);
+			const rest = s.slice(i).toLowerCase();
+			const lower = WORDS.find((w) => rest.startsWith(w));
+			if (!lower) throw new ExprError(`Unexpected “${c}”`);
+			const fn = FNS.find((f) => f === lower);
 			if (fn) out.push({ t: 'fn', v: fn });
 			else if (lower === 'pi') out.push({ t: 'const', v: 'pi' });
 			else if (lower === 'e') out.push({ t: 'const', v: 'e' });
 			else if (lower === 'ans') out.push({ t: 'const', v: 'ans' });
-			else throw new ExprError(`Unknown “${word}”`);
-			i += word.length;
+			else if (lower === 'mod') out.push({ t: 'op', v: 'mod' });
+			else if (lower === 'c') out.push({ t: 'op', v: 'C' });
+			else out.push({ t: 'op', v: 'P' });
+			i += lower.length;
 		}
 	}
 	return out;
+}
+
+/** nCr (combinations) and nPr (permutations) for whole numbers 0 ≤ r ≤ n. */
+function choose(n: number, r: number, ordered: boolean): number {
+	if (!Number.isInteger(n) || !Number.isInteger(r) || n < 0 || r < 0) throw new ExprError('nCr and nPr need whole numbers ≥ 0');
+	if (r > n) return 0;
+	let v = 1;
+	if (ordered) {
+		for (let k = 0; k < r; k++) v *= n - k;
+		return v;
+	}
+	const rr = Math.min(r, n - r);
+	for (let k = 1; k <= rr; k++) v = (v * (n - rr + k)) / k;
+	return Math.round(v);
 }
 
 function factorial(n: number): number {
@@ -123,11 +149,12 @@ export function evaluate(src: string, opts: { angle?: AngleMode; ans?: number } 
 	function term(): number {
 		let v = unary();
 		for (;;) {
-			if (isOp('*') || isOp('/')) {
+			if (isOp('*') || isOp('/') || isOp('mod')) {
 				const op = (toks[p++] as { v: string }).v;
 				const r = unary();
-				if (op === '/' && r === 0) throw new ExprError('Can’t divide by zero');
-				v = op === '*' ? v * r : v / r;
+				if (op !== '*' && r === 0) throw new ExprError('Can’t divide by zero');
+				// mod follows the sign of the divisor, like most calculators: −7 mod 3 = 2.
+				v = op === '*' ? v * r : op === '/' ? v / r : v - r * Math.floor(v / r);
 			} else if (startsPrimary()) {
 				v *= unary(); // implicit multiplication: 2π, 3(4), 2sin(30)
 			} else return v;
@@ -144,8 +171,16 @@ export function evaluate(src: string, opts: { angle?: AngleMode; ans?: number } 
 		}
 		return power();
 	}
+	function combo(): number {
+		const n = postfix();
+		if (isOp('C') || isOp('P')) {
+			const op = (toks[p++] as { v: string }).v;
+			return choose(n, postfix(), op === 'P');
+		}
+		return n;
+	}
 	function power(): number {
-		const base = postfix();
+		const base = combo();
 		if (isOp('^')) {
 			p++;
 			return Math.pow(base, unary());
@@ -196,6 +231,12 @@ export function evaluate(src: string, opts: { angle?: AngleMode; ans?: number } 
 				case 'asin': return fromRad(Math.asin(arg));
 				case 'acos': return fromRad(Math.acos(arg));
 				case 'atan': return fromRad(Math.atan(arg));
+				case 'sinh': return Math.sinh(arg);
+				case 'cosh': return Math.cosh(arg);
+				case 'tanh': return Math.tanh(arg);
+				case 'asinh': return Math.asinh(arg);
+				case 'acosh': return Math.acosh(arg);
+				case 'atanh': return Math.atanh(arg);
 				case 'ln': return Math.log(arg);
 				case 'log': return Math.log10(arg);
 				case 'sqrt': return Math.sqrt(arg);

@@ -39,3 +39,37 @@ describe('keypad expression evaluator', () => {
 		expect(() => ev('2+')).toThrow();
 	});
 });
+
+describe('scientific additions', () => {
+	it('computes nCr and nPr', () => {
+		expect(ev('5C2')).toBe(10);
+		expect(ev('52C5')).toBe(2598960);
+		expect(ev('5P2')).toBe(20);
+		expect(ev('3C5')).toBe(0);
+		expect(() => ev('5.5C2')).toThrow();
+	});
+	it('computes mod like a calculator', () => {
+		expect(ev('17mod5')).toBe(2);
+		expect(ev('−7mod3')).toBe(2);
+		expect(() => ev('5mod0')).toThrow();
+	});
+	it('has hyperbolic functions and their inverses', () => {
+		expect(ev('sinh(1)')).toBeCloseTo(1.1752011936, 9);
+		expect(ev('cosh(0)')).toBe(1);
+		expect(ev('tanh⁻¹(0.5)')).toBeCloseTo(0.5493061443, 9);
+		expect(ev('sinh⁻¹(1)')).toBeCloseTo(0.8813735870, 9);
+	});
+	it('supports eˣ, 10ˣ, x³, y-th roots and ×10ⁿ entry', () => {
+		expect(ev('ℯ^(2)')).toBeCloseTo(Math.E ** 2, 12);
+		expect(ev('10^(3)')).toBe(1000);
+		expect(ev('2^3')).toBe(8);
+		expect(ev('8^(1÷3)')).toBeCloseTo(2, 12);
+		expect(ev('2.5×10^3')).toBe(2500);
+	});
+	it('reads words after Ans and numbers correctly', () => {
+		expect(evaluate('Ansmod3', { ans: 10 })).toBe(1);
+		expect(evaluate('AnsC2', { ans: 5 })).toBe(10);
+		expect(ev('2cos(0)')).toBe(2);
+		expect(ev('cosh(0)+cos(0)')).toBe(2);
+	});
+});
