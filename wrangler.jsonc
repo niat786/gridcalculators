@@ -1,0 +1,13 @@
+{
+	// GridCalculators is a fully static site (SvelteKit + adapter-static).
+	// Cloudflare only needs to upload the prerendered "build" folder — no Worker code, no server.
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "gridcalculators",
+	"compatibility_date": "2026-10-23",
+	"assets": {
+		"directory": "./build",
+		// /bmi-calculator serves build/bmi-calculator.html; unknown paths serve build/404.html with a 404 status.
+		"html_handling": "auto-trailing-slash",
+		"not_found_handling": "404-page"
+	}
+}
