@@ -45,9 +45,9 @@ export default defineConfig({
 			adapter: adapter({ precompress: false, strict: true }),
 			csp,
 			paths: { origin: 'https://gridcalculators.com' },
-			// The route manifest is not shipped to the browser: smaller JS on first load,
-			// which matters once there are hundreds of calculator routes.
-			router: { resolution: 'server' },
+			// 'client': the browser knows every route, so in-site links never depend on extra route files (the
+			// 'server' mode fetched /<page>/__route.js, which static pages like /about don't get, so footer links failed).
+			router: { resolution: 'client' },
 			// Inline the stylesheet into each page (like AMP) to remove a render-blocking request.
 			inlineStyleThreshold: 60_000,
 			prerender: { entries: ['*', '/404'], handleMissingId: 'fail', handleHttpError: 'fail' }
